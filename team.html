@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Team - Seamless Flow</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500&family=Poppins:wght@400;500;700&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Embedded CSS -->
+  <style>
+    :root {
+      --primary-color: #ecad29;
+      --text-color: #ffffffdd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: var(--text-color);
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 36px;
+      background: transparent;
+      z-index: 100;
+    }
+
+    nav.scrolled {
+      background-color: rgba(26, 26, 26, 0.8);
+      transition: background-color 0.3s ease;
+    }
+
+    nav .svg-container {
+      width: 20px;
+      height: 30px;
+    }
+
+    nav .svg-container img {
+      width: 200px;
+    }
+
+    nav > div:first-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+
+    nav #nav-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav #nav-links a {
+      position: relative;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+    }
+
+    nav #nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 101;
+    }
+
+    /* Team Section */
+    #team {
+      font-family: "Poppins", sans-serif;
+      color: #202020;
+      padding: 115px 20px 120px;
+      background: #fff;
+      margin: 40px auto;
+      border-radius: 12px;
+      max-width: 1600px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .team-header .title {
+      position: relative;
+      padding-bottom: 14px;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 32px;
+      color: #1a3556;
+    }
+
+    .team-header .title:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary-color);
+      border-radius: 3px;
+    }
+
+    .team-header .title:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(30px);
+      width: 10px;
+      height: 3px;
+      background-color: #1a3556;
+      border-radius: 3px;
+    }
+
+    .team-header .description {
+      font-size: 14px;
+      color: #282828;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .team-member {
+      position: relative;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-member img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .team-member .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .team-member .name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a3556;
+      margin-bottom: 8px;
+    }
+
+    .team-member .role {
+      font-size: 14px;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .team-member .bio {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .team-member .social {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .team-member .social a {
+      color: #555;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .team-member .social a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background: #1a1a1a;
+      color: var(--text-color);
+      padding: 60px 20px 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .footer-brand {
+      text-align: left;
+    }
+
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 12px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+
+    .footer-links h3,
+    .footer-info h3,
+    .footer-contact h3 {
+      font-family: "Oswald", sans-serif;
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: var(--primary-color);
+    }
+
+    .footer-links ul,
+    .footer-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li,
+    .footer-info li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a,
+    .footer-info a {
+      color: #ddd;
+      font-size: 14px;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.25s;
+    }
+
+    .footer-links a:hover,
+    .footer-info a:hover {
+      color: #fff;
+    }
+
+    .footer-links a::after,
+    .footer-info a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--primary-color);
+      transition: width 0.25s;
+    }
+
+    .footer-links a:hover::after,
+    .footer-info a:hover::after {
+      width: 100%;
+    }
+
+    .footer-contact p {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .footer-contact a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.25s;
+    }
+
+    .footer-contact a:hover {
+      color: #fff;
+    }
+
+    .footer-social {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: #ddd;
+      transition: color 0.25s, transform 0.25s;
+    }
+
+    .footer-social a:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      background: #1a1a1a;
+      color: var(--text-color);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 13px;
+      opacity: 0.6;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid #333;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav .svg-container img {
+        width: 100px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      nav #nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(26, 26, 26, 0.95);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        z-index: 100;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      nav #nav-links.active {
+        display: flex !important;
+      }
+
+      nav #nav-links a {
+        font-size: 16px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #ffffff33;
+      }
+
+      nav #nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      #team {
+        padding: 40px 20px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-brand,
+      .footer-links,
+      .footer-info,
+      .footer-contact {
+        text-align: center;
+      }
+
+      .footer-logo {
+        margin: 0 auto 12px;
+      }
+
+      .footer-tagline {
+        margin-bottom: 20px;
+      }
+
+      .footer-links ul,
+      .footer-info ul {
+        display: inline-block;
+        text-align: left;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div>
+      <div class="svg-container">
+        <img src="https://www.seamlessflowinc.com/images/logoseamless.png" alt="Seamless Logo" />
+      </div>
+    </div>
+    <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div id="nav-links" class="nav-links">
+      <a href="index.html#carousel">Home</a>
+      <a href="index.html#technology">Technology</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#training">Training</a>
+      <a href="index.html#contact">Contact Us</a>
+      <a href="#" class="active">Team</a>
+    </div>
+  </nav>
+
+  <!-- Team Section -->
+  <section id="team" data-aos="fade-up" data-aos-duration="1500" style="margin-top: 5%;">
+    <div class="team-header">
+      <h2 class="title">Our Team</h2>
+      <p class="description">Meet the dedicated professionals behind Seamless Flow, bringing expertise and passion to solve your toughest challenges.</p>
+    </div>
+    <div class="team-grid" data-aos="fade-up" data-aos-duration="2000">
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="John Doe">
+        <div class="content">
+          <h3 class="name">XXXX XXXXXX</h3>
+          <p class="role">CEO & Founder</p>
+          <p class="bio">XXXX XXXXX XXXXXX XXXXXXX XXXXXXX XXXXXX XXXXXX XXXXX XXXX.</p>
+          <div class="social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Jane Smith">
+        <div class="content">
+          <h3 class="name">XXX XXXXX</h3>
+          <p class="role">Chief Technology Officer</p>
+          <p class="bio">XXXX XXXXX XXXXXX XXXXXXX XXXXXXX XXXXXX XXXXXX XXXXX XXXX.</p>
+          <div class="social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Michael Brown">
+        <div class="content">
+          <h3 class="name">XXXX </h3>
+          <p class="role">Lead Consultant</p>
+          <p class="bio">XXXX XXXXX XXXXXX XXXXXXX XXXXXXX XXXXXX XXXXXX XXXXX XXXX.</p>
+          <div class="social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Emily Davis">
+        <div class="content">
+          <h3 class="name">XXXX XXXXX</h3>
+          <p class="role">Training Director</p>
+          <p class="bio">XXXX XXXXX XXXXXX XXXXXXX XXXXXXX XXXXXX XXXXXX XXXXX XXXX.</p>
+          <div class="social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" data-aos="fade-up" data-aos-duration="1500">
+    <div class="footer-container">
+      <div class="footer-brand" data-aos="fade-right" data-aos-duration="1500">
+        <img src="https://www.seamlessflowinc.com/images/logoseamless.png" alt="Seamless Logo" class="footer-logo" />
+        <p class="footer-tagline">Empowering you to feel your best every day.</p>
+      </div>
+      <div class="footer-links" data-aos="fade-up" data-aos-duration="1500">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="index.html#cloud">Cloud & Infrastructure</a></li>
+          <li><a href="index.html#data">Data Analytics & AI</a></li>
+          <li><a href="index.html#digital">Digital Transformation</a></li>
+          <li><a href="index.html#training">Training & Workshops</a></li>
+          <li><a href="index.html#support">24/7 Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-info" data-aos="fade-up" data-aos-duration="1500">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#careers">Careers</a></li>
+          <li><a href="index.html#blog">Blog & News</a></li>
+          <li><a href="index.html#privacy">Privacy Policy</a></li>
+          <li><a href="index.html#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact" data-aos="fade-left" data-aos-duration="1500">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:hello@seamless.com">hello@seamless.com</a></p>
+        <p>Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Seamless Flow, Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Inline Scripts -->
+  <script>
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Hamburger menu toggle with GSAP animation
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      const hamburgerIcon = document.querySelector('.hamburger i');
+      const isActive = navLinks.classList.contains('active');
+
+      if (!isActive) {
+        navLinks.classList.add('active');
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+        gsap.fromTo(
+          '.nav-links',
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.3, ease: 'sine.out' }
+        );
+      } else {
+        gsap.to('.nav-links', {
+          y: -20,
+          opacity: 0,
+          duration: 0.3,
+          ease: 'sine.in',
+          onComplete: () => {
+            navLinks.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+          }
+        });
+      }
+
+      const isExpanded = !isActive;
+      hamburger.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i');
+        gsap.to('.nav-links', {
+          y: -20,
+          opacity: 0,
+          duration: 0.3,
+          ease: 'sine.in',
+          onComplete: () => {
+            navLinks.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+            hamburger.setAttribute('aria-expanded', false);
+          }
+        });
+      });
+    });
+
+    // Close menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i');
+        if (navLinks.classList.contains('active')) {
+          gsap.to('.nav-links', {
+            y: -20,
+            opacity: 0,
+            duration: 0.3,
+            ease: 'sine.in',
+            onComplete: () => {
+              navLinks.classList.remove('active');
+              hamburgerIcon.classList.remove('fa-times');
+              hamburgerIcon.classList.add('fa-bars');
+              hamburger.setAttribute('aria-expanded', false);
+            }
+          });
+        }
+      }
+    });
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

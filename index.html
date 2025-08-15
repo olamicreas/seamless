@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seamless Flow</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Custom Script -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Carousel Section -->
+  <section class="caro">
+    <div class="indicator"></div>
+
+    <!-- Navbar -->
+    <nav>
+      <div>
+        <div class="svg-container">
+          <img src="https://www.seamlessflowinc.com/images/logoseamless.png" alt="Seamless Logo" width="200" />
+        </div>
+      </div>
+      <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div id="nav-links" class="nav-links">
+        <a href="#carousel" class="active">Home</a>
+        <a href="#technology">Technology</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#training">Training</a>
+        <a href="team.html">Team</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+    </nav>
+
+    <!-- Carousel Content -->
+    <div id="demo"></div>
+
+    <!-- Even Details Pane -->
+    <div class="details" id="details-even">
+      <div class="place-box"><div class="text">Seamless</div></div>
+      <div class="title-box-1"><div class="title-1">We solve</div></div>
+      <div class="title-box-2"><div class="title-2">toughest challenges</div></div>
+      <div class="desc">
+        We’re centered on what’s best for you and your business, providing the professional prowess you need to chart your path forward.
+        <br><br>
+        We do not have limitations—whether you’re a technologist, researcher, financial adviser or industry leader, we deliver the expertise you need.
+      </div>
+      <div class="cta">
+        <button class="bookmark"><i class="fas fa-bookmark"></i></button>
+        <button class="discover">Contact Us</button>
+      </div>
+    </div>
+
+    <!-- Odd Details Pane -->
+    <div class="details" id="details-odd">
+      <div class="place-box"><div class="text">Technology</div></div>
+      <div class="title-box-1"><div class="title-1">Innovating</div></div>
+      <div class="title-box-2"><div class="title-2">Tomorrow</div></div>
+      <div class="desc">
+        From cloud platforms to AI-driven analytics, our Technology practice empowers your organization to stay ahead of the curve. We architect scalable solutions that adapt as fast as the market moves.
+      </div>
+      <div class="cta">
+        <button class="bookmark"><i class="fas fa-bookmark"></i></button>
+        <button class="discover">Learn More</button>
+      </div>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination" id="pagination">
+      <div class="arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+      <div class="arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+      <div class="progress-sub-container">
+        <div class="progress-sub-background">
+          <div class="progress-sub-foreground"></div>
+        </div>
+      </div>
+      <div class="slide-numbers" id="slide-numbers"></div>
+    </div>
+
+    <!-- Preloader Cover -->
+    <div class="cover"></div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" data-aos="fade-up" data-aos-duration="4000">
+    <div class="about-us-container">
+      <div class="about-us-left" data-aos="fade-right" data-aos-duration="2000">
+        <div class="main-image">
+          <img src="https://html.themewant.com/invena/assets/images/about/04.webp" alt="Main Image">
+        </div>
+        <div class="secondary-image">
+          <img src="https://html.themewant.com/invena/assets/images/about/05.webp" alt="Secondary Image">
+        </div>
+        
+        <div class="plus-signs">
+          <span>+</span>
+          <span>+</span>
+          <span>+</span>
+        </div>
+      </div>
+      <div class="about-us-right">
+        <div class="subheading">Know more</div>
+        <h1 class="main-title">About Seamless Flow</h1>
+        <p class="description">
+          We are centered on what’s best for you, your people, your business and the environment where you operate. We strive to be a partner to businesses big and small, providing the professional prowess you need to chart your path forward. It’s all part of our mission: To deliver an unmatched experience you won’t get anywhere else. Founded as a virtual company over a decade, we’re an international consulting firm with more than a thousand experts in digital, technology and business consulting who are here to help solve your toughest challenges.
+        </p>
+        <ul class="bullet-points">
+          <li><b>Our Outlook</b><br>Your business is our business—we’re committed, experienced partners who treat your goals as our own.</li>
+          <li><b>Industry Expertise</b><br>Our experts deliver tailored solutions, enhanced by modern practices, accelerators and tools for quality and speed.</li>
+          <li><b>Commitment & Experience</b><br>We bring a deeply experienced team with a calculated total of 75+ years of experience that can include resources from across the globe.</li>
+        </ul>
+        <div class="call-to-action">
+          <div class="phone-icon"><i class="fas fa-phone"></i></div>
+          <button class="contact-button">Contact Us</button>
+        </div>
+        <div class="signature">Seamless Flow</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section-services">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="header-section">
+            <h2 class="title">Exclusive Services</h2>
+            <p class="description">We produce beautifully crafted creative solutions that transcend business goals. We provide the exceptional service we’d want to experience ourselves!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="single-service">
+            <div class="content">
+              <span class="icon"><i class="fas fa-sync-alt"></i></span>
+              <h3 class="title">Transformation</h3>
+              <p class="description">Provide your team with the right support, at the right place and at the right time. Digital Transformation failure is caused by lack of training and know-how.</p>
+              <a href="#digital" class="learn-more">Learn More</a>
+            </div>
+            <span class="circle-before"></span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="single-service">
+            <div class="content">
+              <span class="icon"><i class="fas fa-chart-pie"></i></span>
+              <h3 class="title">Business Consulting</h3>
+              <p class="description">Together we can envision, inspire and transform your business. From evolving customer expectations and emerging technologies.</p>
+              <a href="#consulting" class="learn-more">Learn More</a>
+            </div>
+            <span class="circle-before"></span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="single-service">
+            <div class="content">
+              <span class="icon"><i class="fas fa-laptop-code"></i></span>
+              <h3 class="title">Website Design</h3>
+              <p class="description">We are in the era of complexities and turbulence where organizations are challenged to adapt and preemptively change as fast as possible.</p>
+              <a href="#webdesign" class="learn-more">Learn More</a>
+            </div>
+            <span class="circle-before"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" data-aos="fade-up" data-aos-duration="1500">
+    <div class="footer-container">
+      <div class="footer-brand" data-aos="fade-right" data-aos-duration="1500">
+        <img src="https://www.seamlessflowinc.com/images/logoseamless.png" alt="Seamless Logo" class="footer-logo" />
+        <p class="footer-tagline">Empowering you to feel your best every day.</p>
+      </div>
+      <div class="footer-links" data-aos="fade-up" data-aos-duration="1500">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#cloud">Cloud & Infrastructure</a></li>
+          <li><a href="#data">Data Analytics & AI</a></li>
+          <li><a href="#digital">Digital Transformation</a></li>
+          <li><a href="#training">Training & Workshops</a></li>
+          <li><a href="#support">24/7 Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-info" data-aos="fade-up" data-aos-duration="1500">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#blog">Blog & News</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact" data-aos="fade-left" data-aos-duration="1500">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:hello@seamless.com">hello@seamless.com</a></p>
+        <p>Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Seamless Flow, Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Inline Scripts -->
+  <script>
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Hamburger menu toggle with GSAP animation
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      const hamburgerIcon = document.querySelector('.hamburger i');
+      const isActive = navLinks.classList.contains('active');
+
+      if (!isActive) {
+        navLinks.classList.add('active');
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+        gsap.fromTo(
+          '.nav-links',
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.3, ease: 'sine.out' }
+        );
+      } else {
+        gsap.to('.nav-links', {
+          y: -20,
+          opacity: 0,
+          duration: 0.3,
+          ease: 'sine.in',
+          onComplete: () => {
+            navLinks.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+          }
+        });
+      }
+
+      const isExpanded = !isActive;
+      hamburger.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i');
+        gsap.to('.nav-links', {
+          y: -20,
+          opacity: 0,
+          duration: 0.3,
+          ease: 'sine.in',
+          onComplete: () => {
+            navLinks.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+            hamburger.setAttribute('aria-expanded', false);
+          }
+        });
+      });
+    });
+
+    // Close menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i');
+        if (navLinks.classList.contains('active')) {
+          gsap.to('.nav-links', {
+            y: -20,
+            opacity: 0,
+            duration: 0.3,
+            ease: 'sine.in',
+            onComplete: () => {
+              navLinks.classList.remove('active');
+              hamburgerIcon.classList.remove('fa-times');
+              hamburgerIcon.classList.add('fa-bars');
+              hamburger.setAttribute('aria-expanded', false);
+            }
+          });
+        }
+      }
+    });
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
